@@ -4,7 +4,7 @@ void setup() {
   size(displayWidth,displayHeight);
 }
 void draw() {
-  background(0);
+//  background(0);
   b.move();
   b.bounce();
   b.display();
@@ -12,16 +12,18 @@ void draw() {
 class Ball {
   //properties
   float sz;
-  PVector loc, vel;
+  PVector loc, vel,acc;
   Ball() {
     sz= 50;
     loc= new PVector(width/2, height/2);
-    vel= PVector.random2D();
+    vel= new PVector(random(5),1);
+    acc= new PVector(0,1);
   }
   void display() {
     ellipse(loc.x, loc.y, sz, sz);
   }
   void move() {
+    vel.add(acc);
     loc.add(vel);
   }
   void bounce() {
