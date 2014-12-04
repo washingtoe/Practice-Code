@@ -1,34 +1,41 @@
-int c=1000;
+int c=100000;
 Ball[] b= new Ball[c];
 void setup() {
   for (int i=0;i<c;i++) {
-    b[i]= new Ball();
+    b[i]= new Ball(3);
   }
   size(displayWidth, displayHeight);
   noStroke();
   noCursor();
+  colorMode(HSB,360,100,100,100);
 }
 void draw() {
-  background(0);
+  background(0,0,0);
   for(int i=0;i<c;i++){
   b[i].move();
   b[i].bounce();
   b[i].display();
+  text(frameRate,10,20);
   }
 }
 
 class Ball {
   //properties
   float sz;
-  PVector loc, vel, acc,shock;
-  Ball() {
-    sz= 50;
-    loc= new PVector(random(100,displayWidth-100), random(displayHeight));
+  PVector loc, vel, acc;
+  float h,s,b,a;
+  Ball(float tsz) {
+    sz= tsz;
+    loc= new PVector(random(sz/2,1600-sz/2), random(displayHeight));
     vel= new PVector(random(10), 1);
-    acc= new PVector(0, 5);
-    shock= new PVector(0,10);
+    acc= new PVector(0, random(10));
+    h= random(120,150);
+    s=100;
+    b=100;
+    a=20;
   }
   void display() {
+    fill(h,s,b,a);
     ellipse(loc.x, loc.y, sz, sz);
   }
   void move() {
