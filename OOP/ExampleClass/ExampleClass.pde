@@ -1,8 +1,8 @@
-int c=100000;
+int c=25;
 Ball[] b= new Ball[c];
 void setup() {
   for (int i=0;i<c;i++) {
-    b[i]= new Ball(3);
+    b[i]= new Ball(random(200,300));
   }
   size(displayWidth, displayHeight);
   noStroke();
@@ -51,6 +51,9 @@ class Ball {
       vel.y = -abs(vel.y);
     }
   }
+//  void collide(){
+//    
+//  }
 }
 
 
