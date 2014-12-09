@@ -16,7 +16,7 @@ void draw() {
     p.move();
     p.bounce();
     p.display();
-    if(b.size()>50){
+    if(b.size()>200){
       b.remove(0);
     }
 //    for (int j=0; j< c; j++) {
@@ -27,6 +27,6 @@ void draw() {
     text(frameRate, 10, 20);
   }
 }
-void mouseDragged(){
+void mouseMoved(){
   b.add(new Ball(mouseX,mouseY,random(5,50)));
 }
